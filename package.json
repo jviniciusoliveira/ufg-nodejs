@@ -1,0 +1,19 @@
+{
+  "name": "ufg-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://josevinicius@bitbucket.org/josevinicius/ufg-nodejs.git"
+  },
+  "author": "Jose Vinicius",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/josevinicius/ufg-nodejs#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
