@@ -10,6 +10,7 @@ module.exports = function() {
     app.use(express.static('./app/public'));
    
     consign({cwd: 'app'})
+        .include('repository')
         .include('routes')
         .into(app);
 

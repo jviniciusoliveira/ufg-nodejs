@@ -5,7 +5,8 @@ module.exports = function(app) {
     });
 
     app.get('/votar', function(req, res) {
-        res.render('votar');
+        var candidatos = app.repository.candidatosDB();
+        res.render('votar', {cand : candidatos});
     });
 
     app.get('/gerenciar', function(req, res) {
