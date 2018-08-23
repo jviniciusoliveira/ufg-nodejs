@@ -1,3 +1,5 @@
+function CandidatosDAO() {}
+
 var candidatos = 
 [
     {
@@ -12,12 +14,14 @@ var candidatos =
     }
 ];
 
-
-function getAll() {
-
+CandidatosDAO.prototype.get = function() {
     return candidatos;
 }
 
+CandidatosDAO.prototype.set = function(candidato) {
+    candidatos.push(candidato);
+} 
+
 module.exports = function () {
-    return getAll;
+    return CandidatosDAO;
 };
