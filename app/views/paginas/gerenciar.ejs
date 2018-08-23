@@ -1,0 +1,28 @@
+<%- contentFor('body') %>
+
+    
+    <div class="container">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Número | Partido</th>
+                <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            <%  for (var i in cand) { %>
+                <tr>
+                <th scope="row"><%=i %></th>
+                <td><%=cand[i].nome %></td>
+                <td><%=cand[i].numero %> | <%=cand[i].partido %></td>
+                <td><button type="button" class="btn btn-outline-info btn-sm">Editar</button> | <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button></td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+            <a href="/cadastrar" class="btn btn-primary btn-md">Cadastrar</a>
+    </div>
