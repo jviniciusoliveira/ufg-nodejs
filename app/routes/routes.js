@@ -5,7 +5,7 @@ module.exports = function(app) {
         if(req.body.user == 'admin' && req.body.pass == 123) {
             res.redirect('/gerenciar');
         } else {
-            res.render('');
+            res.send('<h1>Login Inválido</h1>');
         }        
     });
 }

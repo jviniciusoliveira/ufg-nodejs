@@ -3,7 +3,6 @@ var consign = require('consign');
 var bodyParser = require('body-parser');
 var expressLayout = require('express-ejs-layouts');
 
-
 module.exports = function() {
 
     var app = express();
