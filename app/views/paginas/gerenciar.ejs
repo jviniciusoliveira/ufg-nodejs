@@ -14,10 +14,16 @@
             <tbody>
             <%  for (var i in cand) { %>
                 <tr>
-                <th scope="row"><%=i %></th>
-                <td><%=cand[i].nome %></td>
-                <td><%=cand[i].numero %> | <%=cand[i].partido %></td>
-                <td><button type="button" class="btn btn-outline-info btn-sm">Editar</button> | <button type="button" class="btn btn-outline-danger btn-sm">Excluir</button></td>
+                    <th scope="row"><%=i %></th>
+                    <td><%=cand[i].nome %></td>
+                    <td><%=cand[i].numero %> | <%=cand[i].partido %></td>
+                    <td><a href="editar/<%=cand[i].numero %>"class="btn btn-outline-info btn-sm">Editar</a></td>
+                    <td>
+                        <form action="excluir" method="POST">
+                            <input type="hidden" name="candidatoNr" value="<%=cand[i].numero %>">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button> 
+                        </form>  
+                    </td>
                 </tr>
             <% } %>
             </tbody>

@@ -4,7 +4,7 @@ module.exports = function (app) {
 
         listaCandidatos: function(req, res) {
             var candidatos = new app.repository.CandidatosDAO().get();
-            res.render('paginas/votar', {cand : candidatos});
+            res.render('paginas/candidatos', {cand : candidatos});
         },
 
         registraVoto: function(req, res) {

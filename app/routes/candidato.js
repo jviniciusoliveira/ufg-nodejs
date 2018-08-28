@@ -4,5 +4,6 @@ module.exports = function (app) {
 
     app.get('/cadastrar', candidatoController.formularioCadastro);
     app.post('/candidato/save', candidatoController.save);
-    app.post('/gerenciar', candidatoController.gerenciar);
+    app.get('/gerenciar', candidatoController.gerenciar);
+    app.get('/editar/:id', candidatoController.formularioEditar);
 }

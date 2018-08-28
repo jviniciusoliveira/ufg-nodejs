@@ -1,0 +1,17 @@
+<%- contentFor('body') %>
+
+<form action="/candidato/edit" method="POST">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" value="<%=cand.nome %>" placeholder="Nome do candidato">
+    </div>
+    <div class="form-group">
+        <label for="partido">Partido</label>
+        <input type="text" class="form-control" id="partido" name="partido" value="<%=cand.partido %>" placeholder="Partido">
+    </div>
+    <div class="form-group">
+            <label for="numero">Numero</label>
+            <input type="number" class="form-control" id="numero" name="numero" value="<%=cand.numero %>" placeholder="Numero para votação">
+    </div>
+    <button type="submit" class="btn btn-primary">Gravar</button>
+</form>

@@ -14,13 +14,15 @@ module.exports = function (app) {
         },
 
         gerenciar: function(req, res) {
-            if(req.body.user == 'admin' && req.body.pass == 123) {
-                var candidatos = new app.repository.CandidatosDAO().get();
-                res.render('paginas/gerenciar', {cand : candidatos});
-            } else {
-                res.render('paginas/login');
-            }
+            var candidatos = new app.repository.CandidatosDAO().getAll();
+            res.render('paginas/gerenciar', {cand : candidatos});
         },
+
+        formularioEditar: function(req, res) {
+            var candidatoNr = req.params.id;
+            var candidato = new app.repository.CandidatosDAO().get(candidatoNr);
+            res.render('paginas/formEditar', { cand: candidato });
+        }
     }
     return CandidatoController;
 }
