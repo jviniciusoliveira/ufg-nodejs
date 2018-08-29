@@ -19,7 +19,7 @@
                     <td><%=cand[i].numero %> | <%=cand[i].partido %></td>
                     <td><a href="editar/<%=cand[i].numero %>"class="btn btn-outline-info btn-sm">Editar</a></td>
                     <td>
-                        <form action="excluir" method="POST">
+                        <form action="candidato/excluir" method="POST">
                             <input type="hidden" name="candidatoNr" value="<%=cand[i].numero %>">
                             <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button> 
                         </form>  

@@ -48,6 +48,17 @@ CandidatosDAO.prototype.percentual = function() {
     return percentualCadidatos;
 }
 
+CandidatosDAO.prototype.edit = function(candidato) {
+    let index = candidatos.findIndex(val => val.numero == candidato.numero);
+    candidatos[index].nome = candidato.nome;
+    candidatos[index].partido = candidato.partido;
+}
+
+CandidatosDAO.prototype.delete = function(candidatoNr) {
+    let index = candidatos.findIndex(val => val.numero == candidatoNr);
+    candidatos.splice(index, 1);
+}
+
 module.exports = function () {
     return CandidatosDAO;
 };

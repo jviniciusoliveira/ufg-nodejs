@@ -22,6 +22,17 @@ module.exports = function (app) {
             var candidatoNr = req.params.id;
             var candidato = new app.repository.CandidatosDAO().get(candidatoNr);
             res.render('paginas/formEditar', { cand: candidato });
+        },
+
+        edit: function(req, res) {
+            var candidato = req.body;
+            new app.repository.CandidatosDAO().edit(candidato);
+            res.redirect('/gerenciar');
+        },
+
+        delete: function(req, res) {
+            new app.repository.CandidatosDAO().delete(req.body.candidatoNr);
+            res.redirect('/gerenciar');
         }
     }
     return CandidatoController;

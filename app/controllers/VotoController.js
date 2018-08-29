@@ -3,7 +3,7 @@ module.exports = function (app) {
     var VotoController = {
 
         listaCandidatos: function(req, res) {
-            var candidatos = new app.repository.CandidatosDAO().get();
+            var candidatos = new app.repository.CandidatosDAO().getAll();
             res.render('paginas/candidatos', {cand : candidatos});
         },
 
@@ -14,7 +14,7 @@ module.exports = function (app) {
 
         percentual: function(req, res) {
             var percentual = new app.repository.CandidatosDAO().percentual();
-            var candidatos = new app.repository.CandidatosDAO().get();
+            var candidatos = new app.repository.CandidatosDAO().getAll();
             res.render('paginas/percentual', {percent : percentual, cand : candidatos});
         }
     }

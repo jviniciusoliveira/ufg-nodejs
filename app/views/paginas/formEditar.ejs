@@ -11,7 +11,8 @@
     </div>
     <div class="form-group">
             <label for="numero">Numero</label>
-            <input type="number" class="form-control" id="numero" name="numero" value="<%=cand.numero %>" placeholder="Numero para votação">
+            <input type="number" class="form-control" id="numero"value="<%=cand.numero %>" disabled>
+            <input type="hidden"name="numero" value="<%=cand.numero %>">
     </div>
     <button type="submit" class="btn btn-primary">Gravar</button>
 </form>
