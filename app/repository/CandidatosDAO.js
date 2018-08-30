@@ -20,10 +20,13 @@ CandidatosDAO.prototype.get = function(candidatoNr) {
 }
 
 CandidatosDAO.prototype.set = function(candidato) {
-    candidatos.push(candidato);
+    if(!jaExiste(candidato.numero)) {
+        candidatos.push(candidato);
+    } else {
+        return false;
+    }
 }
 
-// Será necessário implementar validação para não permitir cadastrar candidatos com o mesmo número
 CandidatosDAO.prototype.voto = function(candidatoNr) {
     let index = candidatos.findIndex(val => val.numero == candidatoNr);
     candidatos[index].votos = candidatos[index].votos +1;
@@ -57,6 +60,14 @@ CandidatosDAO.prototype.edit = function(candidato) {
 CandidatosDAO.prototype.delete = function(candidatoNr) {
     let index = candidatos.findIndex(val => val.numero == candidatoNr);
     candidatos.splice(index, 1);
+}
+
+function jaExiste(candidatoNr) {
+    let index = candidatos.findIndex(val => val.numero == candidatoNr);
+    if(index < 0) {
+        return false;
+    }
+    return true;
 }
 
 module.exports = function () {
