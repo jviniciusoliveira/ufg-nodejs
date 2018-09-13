@@ -1,22 +1,28 @@
 
 <%- contentFor('body') %>
-    <!-- Page Features -->
-    <div class="row text-center">
-        <%  for (var i in cand) { %>
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card">
-                <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-                <div class="card-body">
-                    <h4 class="card-title"><%=cand[i].nome %></h4>
-                    <p class="card-text">Partido: <%=cand[i].partido %> / Numero: <%=cand[i].numero %>  Votos: <%=cand[i].votos %></p>
+
+<h3>Candidatos</h3>
+
+<div class="row">
+    <%  for (var i in cand) { %>
+    <div class="col s2">
+        <div class="card">
+            <div class="card-image">
+                <img src="http://placehold.it/150x100">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p><%=cand[i].nome %></p>
+                    <p>Partido: <%=cand[i].partido %> / Numero: <%=cand[i].numero %>  Votos: <%=cand[i].votos %></p>
                 </div>
-                <div class="card-footer">
+                <div class="card-action">
                     <form action="registra-voto" method="POST">
-                        <input type="hidden" name="candidatoNr" value="<%=cand[i].numero %>">
-                        <button type="submit" class="btn btn-primary">Votar</button>
+                            <input type="hidden" name="candidatoNr" value="<%=cand[i].numero %>">
+                            <button type="submit" class="btn btn-primary">Votar</button>
                     </form> 
                 </div>
             </div>
         </div>
-        <% } %>
     </div>
+    <% } %>
+</div>

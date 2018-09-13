@@ -1,28 +1,31 @@
 <%- contentFor('body') %>
 
-<div class="container">
-    <table class="table table-striped ">
-        <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Número | Partido</th>
-                <th scope="col">Votos</th>
-                <th scope="col">Percentual</th>
-            </tr>
-        </thead>
-        <tbody>
-        <%  for (var i in cand) { %>
-            <tr>
-                <td><%=cand[i].nome %></td>
-                <td><%=cand[i].numero %> | <%=cand[i].partido %></td>
-                <td><%=cand[i].votos %></td>
-                <td>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: <%=percent[i].percentual %>%" aria-valuenow="<%=percent[i].percentual %>" aria-valuemin="0" aria-valuemax="100"><%=percent[i].percentual %> %</div>
-                    </div>
-                </td>
-            </tr>
-        <% } %>
-        </tbody>
-    </table>
-</div>
+<h3>Votação</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th class="center" scope="col">Número - Partido</th>
+            <th class="center" scope="col">Votos</th>
+            <th class="center" scope="col">Percentual</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    <%  for (var i in cand) { %>
+        <tr>
+            <td><%=cand[i].nome %></td>
+            <td class="center"><%=cand[i].numero %> - <%=cand[i].partido %></td>
+            <td class="center"><%=cand[i].votos %></td>
+            <td>
+                <div class="progress">
+                    <div class="determinate" style="width: <%=percent[i].percentual %>%"></div>
+                </div>
+                
+            </td>
+            <td><div class="center"><%=percent[i].percentual %> %</div></td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>

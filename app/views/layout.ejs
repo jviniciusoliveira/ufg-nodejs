@@ -4,93 +4,67 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Sistema de Votação</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/candidatos">Candidatos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="">Cadastros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/percentual">Votação</a>
-                    </li>
-                </ul>
-            </div>
+    <!-- Navbar principal -->
+    <nav>
+        <div class="nav-wrapper cyan darken-2">
+            <a href="/" class="brand-logo center">UFG</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/candidatos">Candidatos</a></li>
+                <li><a class="modal-trigger" href="#modal1">Cadastros</a></li>
+                <li><a href="/percentual">Votação</a></li>
+            </ul>
         </div>
     </nav>
-
-    <!-- Modal Autenticação -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Autenticação</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="/auth" method="POST">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="user" class="col-form-label">Usuário:</label>
-                            <input type="text" class="form-control" id="user" name="user">
-                        </div>
-                        <div class="form-group">
-                            <label for="pass" class="col-form-label">Senha:</label>
-                            <input type="password" class="form-control" id="pass" name="pass">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Ok</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!-- Conteúdo EJS -->
     <div class="container">
         <%- body %>
+
+        <!-- Modal Autenticação -->
+        <div id="modal1" class="modal">
+            <form action="/auth" method="POST">
+                <div class="modal-content">
+                    <h5>Autenticação</h5>
+                    <div>
+                        <label for="user">Usuário:</label>
+                        <input type="text" id="user" name="user" />
+                    </div>
+                    <div>
+                        <label for="pass">Senha:</label>
+                        <input type="password" id="pass" name="pass" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancela</a>
+                    <input class="waves-effect waves-green btn-flat" type="submit" value="Ok">
+                </div>
+            </form>
+        </div>
     </div>
 
-    <footer class="py-5 bg-dark fixed-bottom">
-        <div class="container">
-          <p class="m-2 text-center text-white">UFG Pós Graduação 2018</p>
-    </div>
-    </footer>
-  
-    <!-- Bootstrap core JavaScript -->
-    <script src="/jquery/jquery.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-    <!-- Script Modal Autenticação -->
     <script>
-        $('#loginModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        //var recipient = button.data('whatever') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-        var modal = $(this)
-        //modal.find('.modal-title').text('New message to ' + recipient)
-        //modal.find('.modal-body input').val(recipient)
-    })
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+          });
     </script>
+
 </body>
 </html>
+
