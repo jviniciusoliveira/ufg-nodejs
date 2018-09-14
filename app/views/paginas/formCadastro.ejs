@@ -1,21 +1,35 @@
 <%- contentFor('body') %>
 
-<form action="/candidato/save" method="POST">
-    <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do candidato">
-    </div>
-    <div class="form-group">
-        <label for="partido">Partido</label>
-        <input type="text" class="form-control" id="partido" name="partido" placeholder="Partido">
-    </div>
-    <div class="form-group">
-        <label for="numero">Numero</label>
-        <input type="number" class="form-control" id="numero" name="numero" placeholder="Numero para votação">
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlFile1">Imagem</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" disabled>
-    </div>
-    <button type="submit" class="btn btn-primary">Gravar</button>
-</form>
+<h3>Cadastrar Candidato</h3>
+<div class="row">
+    <form class="col s12" action="/candidato/save" method="POST">
+        <div class="row">
+            <div class="input-field col s12">
+                <label for="name">Nome</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <label for="partido">Partido</label>
+                <input type="text" id="partido" name="partido">
+            </div>
+            <div class="input-field col s4">
+                <label for="numero">Número</label>
+                <input type="number" id="numero" name="numero">
+            </div>
+            <div class="file-field input-field col s4">
+                <div class="btn grey lighten-1">
+                    <span>Foto</span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Selecionar foto">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Gravar</button>
+        </div>
+    </form>
+</div>
